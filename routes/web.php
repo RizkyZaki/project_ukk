@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SppController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [DashboardController::class, 'dashboard']);
+
+Route::resource('spp', SppController::class);
+Route::resource('kelas', KelasController::class);

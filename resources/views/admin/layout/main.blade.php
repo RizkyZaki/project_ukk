@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Listrik Pascabayar</title>
+  <title>{{$header}}</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
@@ -41,15 +41,15 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Listrik</div>
+        <div class="sidebar-brand-text mx-3">SPP App</div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+      <li class="nav-item {{Request::is('/') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('/')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -59,47 +59,44 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Manage
+        Administrator
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{url('pelanggan')}}">
+      <li class="nav-item {{Request::is('siswa') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('siswa')}}">
           <i class="fas fa-solid fa-users"></i>
-          <span>Pelanggan</span></a>
+          <span>Siswa</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url('tagihan')}}">
+      <li class="nav-item {{Request::is('petugas') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('petugas')}}">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tagihan</span></a>
+          <span>Petugas</span></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{url('tarif')}}">
+      <li class="nav-item {{Request::is('kelas') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('kelas')}}">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Tarif</span></a>
+          <span>Kelas</span></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+      <li class="nav-item {{Request::is('spp') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('spp')}}">
+          <i class="fas fa-solid fa-credit-card"></i>
+          <span>SPP</span></a>
+      </li>
+
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Pembayaran SPP
+      </div>
+      <li class="nav-item {{Request::is('pembayaran') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('pembayaran')}}">
           <i class="fas fa-solid fa-credit-card"></i>
           <span>Pembayaran</span></a>
       </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-
-      <!-- Divider -->
-
-      <!-- Heading -->
-
-
-      <!-- Nav Item - Charts -->
-
-
-      <!-- Nav Item - Tables -->
-
-
-      <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
