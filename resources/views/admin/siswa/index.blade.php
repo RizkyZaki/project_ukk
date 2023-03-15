@@ -43,7 +43,7 @@
               <td>{{$item->no_telp}}</td>
               <td>{{$item->spp->nominal}}</td>
               <td>
-                Action
+
               </td>
             </tr>
             @endforeach

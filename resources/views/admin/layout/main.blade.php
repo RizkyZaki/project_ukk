@@ -84,20 +84,9 @@
           <i class="fas fa-solid fa-credit-card"></i>
           <span>SPP</span></a>
       </li>
-
-      <div class="sidebar-heading">
-        Pembayaran SPP
-      </div>
-      <li class="nav-item {{Request::is('pembayaran') ? 'active' : ''}}">
-        <a class="nav-link" href="{{url('pembayaran')}}">
-          <i class="fas fa-solid fa-credit-card"></i>
-          <span>Pembayaran</span></a>
-      </li>
-      <hr class="sidebar-divider d-none d-md-block">
       @endcan
 
-
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider d-none d-md-block">
       <div class="sidebar-heading">
         Pembayaran SPP
       </div>
@@ -108,12 +97,10 @@
       </li>
       <hr class="sidebar-divider d-none d-md-block">
       <!-- Heading -->
-
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-
 
 
     </ul>

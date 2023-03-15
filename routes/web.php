@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SppController;
@@ -27,7 +28,12 @@ Route::controller(AuthController::class)->group(function () {
   Route::get('logout', 'logout');
 });
 
-Route::resource('spp', SppController::class)->middleware('auth', 'admin');
-Route::resource('siswa', SiswaController::class)->middleware('auth', 'admin');
-Route::resource('kelas', KelasController::class)->middleware('auth', 'admin');
-Route::resource('petugas', PetugasController::class)->middleware('auth', 'admin');
+Route::controller(PembayaranController::class)->group(function () {
+  Route::get('bayar', 'bayar');
+  Route::get('bayar', 'store');
+});
+
+Route::resource('spp', SppController::class)->middleware('admin');
+Route::resource('siswa', SiswaController::class)->middleware('admin');
+Route::resource('kelas', KelasController::class)->middleware('admin');
+Route::resource('petugas', PetugasController::class)->middleware('admin');

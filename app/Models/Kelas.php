@@ -9,7 +9,7 @@ class Kelas extends Model
 {
     use HasFactory;
     protected $table = 'kelas';
-    protected $guarded = ['id'];
+    protected $guarded = [];
     public function siswa()
     {
         return $this->hasMany(Siswa::class, 'id_kelas');

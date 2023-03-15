@@ -8,6 +8,6 @@
         class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 
   </div>
-  <p>Hello {{auth()->user()->nama}} Sebagai Petugas</p>
+  <p>Hello {{auth()->user()->nama}} Sebagai {{auth()->user()->level}}</p>
 </div>
 @endsection

@@ -99,7 +99,7 @@ class SiswaController extends Controller
      */
     public function destroy(Siswa $siswa)
     {
-        Siswa::destroy($siswa->id);
+        Siswa::destroy($siswa->i);
         return redirect('siswa')->with('success', 'Data Berhasil DIhapus');
     }
 }
