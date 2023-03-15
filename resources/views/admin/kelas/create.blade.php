@@ -23,8 +23,8 @@
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Kompetensi Keahlian</label>
-          <input class="form-control" name="kompetensi_keahlian" name="kompetensi_keahlian" id="id_distributor"
-            placeholder="Kompetensi">
+          <input class="form-control @error('kompetensi_keahlian') is-invalid @enderror" name="kompetensi_keahlian"
+            name="kompetensi_keahlian" id="id_distributor" placeholder="Kompetensi">
           @error('kompetensi_keahlian')
           <div class="invalid-feedback">
             {{ $message }}

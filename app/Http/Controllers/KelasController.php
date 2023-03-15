@@ -13,7 +13,7 @@ class KelasController extends Controller
     public function index()
     {
         return view('admin.kelas.index', [
-            'header' => 'SPP | Data Kelas',
+            'header' => 'SPP | Kelas',
             'titlePage' => 'Data Kelas',
             'titleCard' => 'Table Kelas',
             'collection' => Kelas::all()
@@ -26,7 +26,7 @@ class KelasController extends Controller
     public function create()
     {
         return view('admin.kelas.create', [
-            'header' => 'SPP | Data Kelas',
+            'header' => 'SPP | Kelas',
             'titlePage' => 'Data Kelas',
             'titleCard' => 'Form Kelas',
         ]);
@@ -59,7 +59,7 @@ class KelasController extends Controller
     public function edit(Kelas $kela)
     {
         return view('admin.kelas.update', [
-            'header' => 'SPP | Data Kelas',
+            'header' => 'SPP | Kelas',
             'titlePage' => 'Data Kelas',
             'titleCard' => 'Form Kelas',
             'item' => $kela

@@ -9,7 +9,7 @@ class DashboardController extends Controller
     public function dashboard()
     {
         return view('admin.dashboard', [
-            'title' => 'SPP | Dashboard'
+            'header' => 'SPP | Dashboard'
         ]);
     }
 }

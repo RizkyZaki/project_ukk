@@ -58,11 +58,10 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
+      @can('admin')
       <div class="sidebar-heading">
         Administrator
       </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item {{Request::is('siswa') ? 'active' : ''}}">
         <a class="nav-link" href="{{url('siswa')}}">
           <i class="fas fa-solid fa-users"></i>
@@ -86,9 +85,6 @@
           <span>SPP</span></a>
       </li>
 
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
       <div class="sidebar-heading">
         Pembayaran SPP
       </div>
@@ -98,6 +94,20 @@
           <span>Pembayaran</span></a>
       </li>
       <hr class="sidebar-divider d-none d-md-block">
+      @endcan
+
+
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Pembayaran SPP
+      </div>
+      <li class="nav-item {{Request::is('pembayaran') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('pembayaran')}}">
+          <i class="fas fa-solid fa-credit-card"></i>
+          <span>Pembayaran</span></a>
+      </li>
+      <hr class="sidebar-divider d-none d-md-block">
+      <!-- Heading -->
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
@@ -286,7 +296,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{url('logout')}}" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -340,7 +350,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="{{url('logout')}}">Logout</a>
         </div>
       </div>
     </div>
@@ -368,10 +378,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
   <script>
     $(document).ready(function() {
-  $('#dataTable').DataTable();
-});
-$(document).ready(function() {
-        $('#inputGroupSelect').select2({
+      $('#dataTable').DataTable();
+    });
+    $(document).ready(function() {
+        $('#inputGroupSelect1').select2({
+            placeholder: 'Pilih Opsi',
+            theme: "bootstrap-5",
+            allowClear: true
+        });
+    });
+    $(document).ready(function() {
+        $('#inputGroupSelect2').select2({
             placeholder: 'Pilih Opsi',
             theme: "bootstrap-5",
             allowClear: true
