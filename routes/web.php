@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthSiswa;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PembayaranController;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'dashboard'])->middleware('auth');
+Route::get('/', [DashboardController::class, 'dashboard'])->middleware('siswa');
 
 Route::controller(AuthController::class)->group(function () {
   Route::get('login', 'login')->name('login')->middleware('guest');
@@ -32,9 +33,13 @@ Route::controller(PembayaranController::class)->group(function () {
   Route::get('history/pembayaran', 'history');
   Route::get('bayar', 'bayar');
   Route::post('bayar', 'store');
-  Route::get('print/{id}', 'print');
+  Route::get('struk/{id}', 'struk');
 })->middleware('auth');
-
+Route::controller(AuthSiswa::class)->group(function () {
+  Route::get('login/siswa', 'loginSiswa');
+  Route::post('login/siswa', 'store');
+  Route::get('logout/siswa', 'logout');
+});
 Route::resource('spp', SppController::class)->middleware('admin');
 Route::resource('siswa', SiswaController::class)->middleware('admin');
 Route::resource('kelas', KelasController::class)->middleware('admin');

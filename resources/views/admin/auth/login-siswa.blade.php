@@ -42,31 +42,22 @@
       <div class="col-lg-6 mx-auto">
         <div class="card rounded shadow p-5">
           <div class="text-center">
-            <h1 class="fw-bold">Login</h1>
-            <h1 class="h4 text-gray-900 mb-4">Welcome User!</h1>
-            @if(session()->has('loginError'))
+            <h1 class="fw-bold">Login Siswa</h1>
+            <p>Masuk menggunakan Nisn</p>
+            {{-- @if(session()->has('loginError'))
             <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
               <strong>{{ session('loginError')}}</strong>
             </div>
-            @endif
+            @endif --}}
           </div>
-          <form class="user" action="{{url('login')}}" method="POST">
+          {{session('nisn')}}
+          <form class="user" action="{{url('login/siswa')}}" method="POST">
             @csrf
             <div class="form-group">
               <i class="fas fa-solid fa-user icon"></i>
-              <input type="text" class="form-control form-control-user  @error('username') is-invalid @enderror"
-                id="exampleInputEmail" name="username" aria-describedby="emailHelp" placeholder="Enter Username...">
-              @error('username')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
-            <div class="form-group">
-              <i class="fas fa-solid fa-key icon"></i>
-              <input type="password" class="form-control form-control-user  @error('password') is-invalid @enderror"
-                id="exampleInputPassword" name="password" placeholder="Enter Password...">
-              @error('password')
+              <input type="text" class="form-control form-control-user  @error('nisn') is-invalid @enderror"
+                id="exampleInputEmail" name="nisn" aria-describedby="emailHelp" placeholder="Enter nisn...">
+              @error('nisn')
               <div class="invalid-feedback">
                 {{ $message }}
               </div>
@@ -76,7 +67,6 @@
               Login
             </button>
           </form>
-          <a href="{{url('login/siswa')}}">Login Sebagai Siswa?</a>
         </div>
       </div>
     </div>

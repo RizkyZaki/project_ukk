@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelas;
 use App\Models\Pembayaran;
 use App\Models\Siswa;
 use App\Models\Spp;

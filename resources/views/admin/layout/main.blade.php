@@ -47,7 +47,18 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
+      @if (session('nisn'))
+      <li class="nav-item {{Request::is('/') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('/')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('logout/siswa')}}">
+          <i class="fas fa-solid fa-credit-card"></i>
+          <span>Log Out</span></a>
+      </li>
+      </li>
+      @else
       <li class="nav-item {{Request::is('/') ? 'active' : ''}}">
         <a class="nav-link" href="{{url('/')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -100,6 +111,9 @@
           <i class="fas fa-solid fa-credit-card"></i>
           <span>Pembayaran</span></a>
       </li>
+      @endif
+      <!-- Nav Item - Dashboard -->
+
       <hr class="sidebar-divider d-none d-md-block">
       <!-- Heading -->
       <!-- Sidebar Toggler (Sidebar) -->
