@@ -29,8 +29,8 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::controller(PembayaranController::class)->group(function () {
+  Route::get('history/pembayaran', 'history');
   Route::get('bayar', 'bayar');
-  Route::get('bayar', 'store');
 });
 
 Route::resource('spp', SppController::class)->middleware('admin');

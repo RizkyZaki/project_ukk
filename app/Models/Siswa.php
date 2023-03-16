@@ -10,7 +10,8 @@ class Siswa extends Model
 
     use HasFactory;
     protected $table = 'siswa';
-    protected $guarded = ['id'];
+    protected $guarded = [];
+    protected $primaryKey = 'nisn';
 
     public function spp()
     {
@@ -19,5 +20,9 @@ class Siswa extends Model
     public function kelas()
     {
         return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
+    public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class, 'nisn');
     }
 }

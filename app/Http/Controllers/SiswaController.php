@@ -18,7 +18,7 @@ class SiswaController extends Controller
             'header' => 'SPP | Siswa',
             'titlePage' => 'Data Siswa',
             'titleCard' => 'Table Siswa',
-            'collection' => Siswa::all()
+            'collection' => Siswa::with(['spp', 'kelas'])->get()
         ]);
     }
 
@@ -82,16 +82,16 @@ class SiswaController extends Controller
     public function update(Request $request, Siswa $siswa)
     {
         $validatedData = $request->validate([
-            'nisn' => 'required|unique:siswa',
-            'nis' => 'required|unique:siswa',
+            // 'nisn' => 'required|unique:siswa',
+            // 'nis' => 'required|unique:siswa',
             'nama' => 'required',
             'id_kelas' => 'required',
             'alamat' => 'required',
             'no_telp' => 'required',
             'id_spp' => 'required',
         ]);
-        Siswa::create($validatedData);
-        return redirect('siswa')->with('success', 'Data Berhasil Masuk');
+        Siswa::find($siswa->nisn)->update($validatedData);
+        return redirect('siswa')->with('success', 'Data Berhasil Diubah');
     }
 
     /**
@@ -99,7 +99,7 @@ class SiswaController extends Controller
      */
     public function destroy(Siswa $siswa)
     {
-        Siswa::destroy($siswa->i);
+        Siswa::destroy($siswa->nisn);
         return redirect('siswa')->with('success', 'Data Berhasil DIhapus');
     }
 }

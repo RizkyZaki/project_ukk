@@ -12,13 +12,17 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'petugas';
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $guarded = ['id'];
-
+    public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class, 'id_petugas');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

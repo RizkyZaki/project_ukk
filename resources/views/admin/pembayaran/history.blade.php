@@ -22,22 +22,25 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Nisn</th>
-              <th>Nis</th>
-              <th>Nama</th>
-              <th>Kelas & Kompetensi</th>
-              <th>Alamat</th>
-              <th>No Telp</th>
-              <th>Nominal Spp</th>
+              <th>Nomor</th>
+              <th>Petugas</th>
+              <th>Nama Siswa</th>
+              <th>NISN</th>
+              <th>Kelas</th>
+              <th>Tanggal Bayar</th>
+              <th>Jumlah Bayar</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
+            @php
+            $nomor=1;
+            @endphp
             @foreach ($collection as $item)
             <tr>
-              <td>{{$item->nisn}}</td>
-              <td>{{$item->nis}}</td>
-              <td>{{$item->nama}}</td>
+              <td>{{$nomor++}}</td>
+              <td>{{$item->petugas->nama}}</td>
+              <td>{{$item->siswa->nama}}</td>
               <td>{{$item->kelas->nama_kelas}} | {{$item->kelas->kompetensi_keahlian}}</td>
               <td>{{$item->alamat}}</td>
               <td>{{$item->no_telp}}</td>

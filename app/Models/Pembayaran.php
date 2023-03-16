@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Pembayaran extends Model
 {
     use HasFactory;
+    protected $table = 'pembayaran';
+    protected $guarded = ['id'];
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'nisn');
+    }
+    public function petugas()
+    {
+        return $this->belongsTo(Petugas::class, 'id_petugas');
+    }
 }

@@ -88,10 +88,15 @@
 
       <hr class="sidebar-divider d-none d-md-block">
       <div class="sidebar-heading">
-        Pembayaran SPP
+        Kelola SPP
       </div>
-      <li class="nav-item {{Request::is('pembayaran') ? 'active' : ''}}">
-        <a class="nav-link" href="{{url('pembayaran')}}">
+      <li class="nav-item {{Request::is('history/pembayaran') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('history/pembayaran')}}">
+          <i class="fa-solid fa-bars-staggered"></i>
+          <span>History Transaksi</span></a>
+      </li>
+      <li class="nav-item {{Request::is('bayar') ? 'active' : ''}}">
+        <a class="nav-link" href="{{url('bayar')}}">
           <i class="fas fa-solid fa-credit-card"></i>
           <span>Pembayaran</span></a>
       </li>
@@ -377,6 +382,13 @@
     $(document).ready(function() {
         $('#inputGroupSelect2').select2({
             placeholder: 'Pilih Opsi',
+            theme: "bootstrap-5",
+            allowClear: true
+        });
+    });
+    $(document).ready(function() {
+        $('#bulan').select2({
+            placeholder: 'Pilih Bulan',
             theme: "bootstrap-5",
             allowClear: true
         });
