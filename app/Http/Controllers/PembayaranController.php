@@ -12,12 +12,15 @@ class PembayaranController extends Controller
 {
     public function history()
     {
-        return view('admin.pembayaran.history', [
-            'header' => 'SPP | Pembayaran',
-            'titlePage' => 'Data Pembayaran',
-            'titleCard' => 'Table Pembayaran',
-            'collection' => Pembayaran::with(['siswa', 'petugas'])->get(),
-        ]);
+        // return view('admin.pembayaran.history', [
+        //     'header' => 'SPP | Pembayaran',
+        //     'titlePage' => 'Data Pembayaran',
+        //     'titleCard' => 'Table Pembayaran',
+        //     'collection' => Pembayaran::with(['siswa', 'petugas'])->get(),
+        // ]);
+        $pembayaran = Pembayaran::with(['siswa', 'petugas'])->first();
+        $spp = Spp::where('id', $pembayaran->id_spp)->get();
+        dd($spp);
     }
     public function bayar()
     {

@@ -86,7 +86,7 @@
           <select class="form-select @error('id_spp') is-invalid @enderror" id="inputGroupSelect2" name="id_spp">
             <option selected>Pilih Spp</option>
             @foreach ($spp as $s)
-            <option value="{{$s->id}}">{{ $s->tahun}}</option>
+            <option value="{{$s->id}}">{{$s->tahun}}|{{ $s->nominal}}</option>
             @endforeach
           </select>
           @error('id_spp')

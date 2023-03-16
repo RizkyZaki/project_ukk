@@ -28,6 +28,7 @@
               <th>NISN</th>
               <th>Tanggal Bayar</th>
               <th>Jumlah Bayar</th>
+              <th>Sisa SPP Nominal</th>
               <th>Action</th>
             </tr>
           </thead>
