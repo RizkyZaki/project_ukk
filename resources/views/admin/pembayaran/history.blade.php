@@ -13,8 +13,7 @@
     <div class="card-header py-3">
       <div class="d-flex justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">{{$titleCard}}</h6>
-        <a href="{{url('siswa/create')}}" class="btn btn-sm btn-primary"><i class="fas fa-solid fa-circle-plus"></i>
-          Tambah Data Siswa</a>
+
       </div>
     </div>
     <div class="card-body">
@@ -27,8 +26,9 @@
               <th>Nama Siswa</th>
               <th>NISN</th>
               <th>Tanggal Bayar</th>
+              <th>Nominal SPP</th>
               <th>Jumlah Bayar</th>
-              <th>Sisa SPP Nominal</th>
+              <th>Sisa Pembayaran</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -37,16 +37,22 @@
             $nomor=1;
             @endphp
             @foreach ($collection as $item)
+            @php
+            $sisa_pembayaran = $item->siswa->spp->nominal - $item->jumlah_bayar ;
+            @endphp
             <tr>
               <td>{{$nomor++}}</td>
               <td>{{$item->petugas->nama}}</td>
               <td>{{$item->siswa->nama}}</td>
               <td>{{$item->nisn}}</td>
               <td>{{$item->tgl_bayar}}</td>
-              <td>{{$item->jumlah_bayar}}</td>
+              <td>Rp. {{number_format(intval($item->siswa->spp->nominal),2)}}</td>
+              <td>Rp. {{number_format(intval($item->jumlah_bayar),2)}}</td>
+              <td>Rp. {{number_format(intval($sisa_pembayaran),2)}}</td>
               <td>
-
+                <a href="{{url('')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-print"></i> Cetak</a>
               </td>
+
             </tr>
             @endforeach
           </tbody>
