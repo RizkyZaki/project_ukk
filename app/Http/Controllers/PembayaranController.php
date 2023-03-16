@@ -50,4 +50,11 @@ class PembayaranController extends Controller
         Pembayaran::create($validatedData);
         return redirect('history/pembayaran')->with('success', 'Transaksi Sukses');
     }
+
+    public function print($id)
+    {
+        return view('admin.pembayaran.print', [
+            'pembayaran' => Pembayaran::find($id)->first()
+        ]);
+    }
 }
