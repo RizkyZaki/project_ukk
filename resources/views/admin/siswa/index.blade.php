@@ -50,7 +50,7 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item bg-success text-white"
-                        href="{{url('siswa/00'. $item->nisn . '/edit')}}"><i class="fa-solid fa-pen-to-square"></i>
+                        href="{{url('siswa/'. $item->nisn . '/edit')}}"><i class="fa-solid fa-pen-to-square"></i>
                         Ubah</a></li>
                     <li>
                       <form action="siswa/{{$item->nisn}}" method="POST" class="d-inline">

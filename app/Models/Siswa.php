@@ -12,6 +12,7 @@ class Siswa extends Model
     protected $table = 'siswa';
     protected $guarded = [];
     protected $primaryKey = 'nisn';
+    protected $keyType = 'string';
 
     public function spp()
     {

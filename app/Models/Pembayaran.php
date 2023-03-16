@@ -17,6 +17,6 @@ class Pembayaran extends Model
     }
     public function petugas()
     {
-        return $this->belongsTo(Petugas::class, 'id_petugas');
+        return $this->belongsTo(User::class, 'id_petugas');
     }
 }

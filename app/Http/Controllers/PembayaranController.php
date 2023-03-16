@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Pembayaran;
 use App\Models\Siswa;
 use App\Models\Spp;
@@ -27,5 +28,26 @@ class PembayaranController extends Controller
             'siswa' => Siswa::all(),
             'spp' => Spp::all()
         ]);
+    }
+
+    public function store(Request $request)
+    {
+
+        $siswa = $request->input('nisn');
+        $siswa = Siswa::where('nisn', $siswa)->first();
+        $spp = Spp::where('id', $siswa->id_spp)->first();
+        $validatedData = $request->validate([
+            'nisn' => 'required',
+            'tgl_bayar' => 'required',
+            'bulan_bayar' => 'required',
+            'tahun_bayar' => 'required',
+            'jumlah_bayar' => 'required',
+        ]);
+
+
+        $validatedData['id_petugas'] = auth()->user()->id;
+        $validatedData['id_spp'] = $spp->id;
+        Pembayaran::create($validatedData);
+        return redirect('history/pembayaran')->with('success', 'Transaksi Sukses');
     }
 }
