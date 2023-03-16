@@ -28,7 +28,6 @@
               <th>Tanggal Bayar</th>
               <th>Nominal SPP</th>
               <th>Jumlah Bayar</th>
-              <th>Sisa Pembayaran</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -37,9 +36,7 @@
             $nomor=1;
             @endphp
             @foreach ($collection as $item)
-            @php
-            $sisa_pembayaran = $item->siswa->spp->nominal - $item->jumlah_bayar ;
-            @endphp
+
             <tr>
               <td>{{$nomor++}}</td>
               <td>{{$item->petugas->nama}}</td>
@@ -48,9 +45,9 @@
               <td>{{$item->tgl_bayar}}</td>
               <td>Rp. {{number_format(intval($item->siswa->spp->nominal),2)}}</td>
               <td>Rp. {{number_format(intval($item->jumlah_bayar),2)}}</td>
-              <td>Rp. {{number_format(intval($sisa_pembayaran),2)}}</td>
               <td>
-                <a href="{{url('')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-print"></i> Cetak</a>
+                <a href="{{url('print/'.$item->id)}}" class="btn btn-success btn-sm"><i class="fa-solid fa-print"></i>
+                  Cetak</a>
               </td>
 
             </tr>

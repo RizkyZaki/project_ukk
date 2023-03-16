@@ -33,7 +33,7 @@ Route::controller(PembayaranController::class)->group(function () {
   Route::get('bayar', 'bayar');
   Route::post('bayar', 'store');
   Route::get('print/{id}', 'print');
-});
+})->middleware('auth');
 
 Route::resource('spp', SppController::class)->middleware('admin');
 Route::resource('siswa', SiswaController::class)->middleware('admin');
