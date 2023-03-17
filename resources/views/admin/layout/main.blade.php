@@ -385,7 +385,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('#dataTable').DataTable();
+      $('#dataTable').DataTable({
+        dom: 'Bfrtip',
+            buttons: [
+                'pdf'
+            ]
+      });
     });
     $(document).ready(function() {
         $('#inputGroupSelect1').select2({
