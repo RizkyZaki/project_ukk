@@ -17,8 +17,7 @@ class isSiswa
    */
   public function handle(Request $request, Closure $next)
   {
-    $siswa = new Siswa();
-    if (!$siswa) {
+    if (!session()) {
       return redirect('login/siswa');
     }
     return $next($request);

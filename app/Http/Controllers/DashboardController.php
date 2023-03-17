@@ -9,6 +9,10 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
+        // if (!session('nisn')) {
+        //     return redirect('login');
+        // }
+
         return view('admin.dashboard', [
             'header' => 'SPP | Dashboard',
             'titleCard' => 'History Pembayaran Saya',

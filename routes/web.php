@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'dashboard'])->middleware('siswa');
+Route::get('/', [DashboardController::class, 'dashboard'])->middleware('auth', 'siswa');
 
 Route::controller(AuthController::class)->group(function () {
   Route::get('login', 'login')->name('login')->middleware('guest');
