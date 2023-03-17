@@ -38,7 +38,8 @@
               <td>{{$item->nisn}}</td>
               <td>{{$item->nis}}</td>
               <td>{{$item->nama}}</td>
-              <td>{{$item->kelas->nama_kelas}} | {{$item->kelas->kompetensi_keahlian}}</td>
+              <td>{{$item->kelas != null ? $item->kelas->nama_kelas : 'Kosong'}} | {{$item->kelas != null ?
+                $item->kelas->kompetensi_keahlian : ''}}</td>
               <td>{{$item->alamat}}</td>
               <td>{{$item->no_telp}}</td>
               <td>{{$item->spp->tahun}}</td>

@@ -9,12 +9,13 @@
       <h1 class="text-center fw-bold p-4 mb-3 shadow-text text-white">{{$titleCard}}</h1>
     </div>
     <div class="card-body p-3">
-      <form action="{{url('petugas/'.$item->id)}}" method="post">
+      <form action="{{url('petugas/'.$petugas->id)}}" method="post">
+        @method('put')
         @csrf
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Nama Petugas</label>
           <input type="text" class="form-control @error('nama_petugas') is-invalid @enderror"
-            value="{{old('nama_petugas', $item->)}}" name="nama_petugas" id="id_distributor" placeholder="Nama....">
+            value="{{old('nama_petugas', $petugas->nama)}}" name="nama" id="id_distributor" placeholder="Nama....">
           @error('nama_petugas')
           <div class="invalid-feedback">
             {{ $message }}
@@ -24,7 +25,8 @@
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Username</label>
           <input class="form-control @error('username') is-invalid @enderror"
-            value="{{old('username', $item->username)}}" name="username" id="id_distributor" placeholder="Kompetensi">
+            value="{{old('username', $petugas->username)}}" name="username" id="id_distributor"
+            placeholder="Kompetensi">
           @error('username')
           <div class="invalid-feedback">
             {{ $message }}
@@ -34,7 +36,8 @@
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Password</label>
           <input class="form-control @error('password') is-invalid @enderror"
-            value="{{old('passowrd', $item->password)}}" name="password" id="id_distributor" placeholder="Kompetensi">
+            value="{{old('passowrd', $petugas->password)}}" name="password" id="id_distributor"
+            placeholder="Kompetensi">
           @error('password')
           <div class="invalid-feedback">
             {{ $message }}

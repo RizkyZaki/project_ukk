@@ -39,8 +39,8 @@
 
             <tr>
               <td>{{$nomor++}}</td>
-              <td>{{$item->petugas->nama}}</td>
-              <td>{{$item->siswa->nama}}</td>
+              <td>{{$item->petugas!=null ? $item->petugas->nama : 'Kosong'}}</td>
+              <td>{{$item->siswa!=null ? $item->siswa->nama : 'kosong'}}</td>
               <td>{{$item->nisn}}</td>
               <td>{{$item->tgl_bayar}}</td>
               <td>Rp. {{number_format(intval($item->siswa->spp->nominal),2)}}</td>

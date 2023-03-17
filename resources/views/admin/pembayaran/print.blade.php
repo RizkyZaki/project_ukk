@@ -11,7 +11,16 @@
       margin: 0 50px 0 50px;
     }
 
-    .head {
+    .header {
+      display: flex;
+      justify-content: center;
+    }
+
+    img {
+      width: 150px
+    }
+
+    .title {
       width: 100%;
       text-align: center;
       line-height: 10px;
@@ -35,10 +44,15 @@
 
 <body onload="window.print()">
   <div class="container">
-    <div class="head">
-      <h1>Bukti Pembayaran SPP</h1>
-      <h3>Siswa/i SMKS Bina Kerja</h3>
-      <p>https://smk.co.id</p>
+    <div class="header">
+      <div class="logo">
+        <img src="{{asset('img/logo_login.png')}}" alt="">
+      </div>
+      <div class="title">
+        <h1>Bukti Pembayaran SPP</h1>
+        <h3>Siswa/i SMKS Bina Kerja</h3>
+        <p>https://smk.co.id</p>
+      </div>
     </div>
 
     <hr>
@@ -50,7 +64,7 @@
       </tr>
       <tr>
         <td class="row">Nama Siswa</td>
-        <td>: {{$pembayaran->siswa->nama}}</td>
+        <td>: {{$pembayaran->siswa!=null?$pembayaran->siswa->nama : 'kosong'}}</td>
       </tr>
       <tr>
         <td class="row">Tanggal Bayar</td>
@@ -69,8 +83,12 @@
         <td>: {{$pembayaran->tahun_bayar}}</td>
       </tr>
       <tr>
+        <td class="row">Keterangan</td>
+        <td>: SPP {{$pembayaran->siswa->spp->tahun}}</td>
+      </tr>
+      <tr>
         <td class="row">Nama Petugas</td>
-        <td>: {{$pembayaran->petugas->nama}}</td>
+        <td>: {{$pembayaran->petugas!=null ? $pembayaran->petugas->nama : 'Kosong'}}/td>
       </tr>
 
     </table>

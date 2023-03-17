@@ -60,24 +60,40 @@ class PetugasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(User $petuga)
     {
-        //
+        return view('admin.petugas.update', [
+            'header' => 'SPP | Petugas',
+            'titlePage' => 'Data Petugas',
+            'titleCard' => 'Table Petugas',
+            'petugas' => $petuga
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $petuga)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        if ($request->input('password')) {
+            $validatedData['password'] = Hash::make($request->input('password'));
+        }
+        User::find($petuga->id)->update($validatedData);
+        return redirect('petugas')->with('success', 'Data Berhasil Diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(User $petuga)
     {
-        //
+        User::destroy($petuga->id);
+        return redirect('petugas')->with('success', 'Data Berhasil Dihapus');
     }
 }

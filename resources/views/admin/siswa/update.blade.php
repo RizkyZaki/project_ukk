@@ -9,7 +9,7 @@
       <h1 class="text-center fw-bold p-4 mb-3 shadow-text text-white">{{$titleCard}}</h1>
     </div>
     <div class="card-body p-3">
-      <form action="{{url('siswa/00'.$siswa->nisn)}}" method="post">
+      <form action="{{url('siswa/'.$siswa->nisn)}}" method="post">
         @method('put')
         @csrf
         <div class="row">

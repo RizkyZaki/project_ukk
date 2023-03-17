@@ -11,8 +11,8 @@ class AuthSiswa extends Controller
 {
     public function loginSiswa()
     {
-        if (!session('nisn')) {
-            return redirect('login/siswa');
+        if (session('nisn')) {
+            return redirect('my-history/transaction');
         }
         return view('admin.auth.login-siswa');
     }
@@ -39,6 +39,9 @@ class AuthSiswa extends Controller
 
     public function siswaDashboard()
     {
+        if (!session('nisn')) {
+            return redirect('login');
+        }
         return view('admin.dashboard-siswa', [
             'header' => 'SPP | Siswa Dashboard',
             'titleCard' => 'Riwayat Pembayaran Saya',
