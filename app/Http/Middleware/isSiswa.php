@@ -17,9 +17,9 @@ class isSiswa
    */
   public function handle(Request $request, Closure $next)
   {
-    if (!session()) {
-      return redirect('login/siswa');
-    }
+    // if (!session(['nisn', 'nama'])) {
+    //   return redirect('login/siswa');
+    // }
     return $next($request);
   }
 }

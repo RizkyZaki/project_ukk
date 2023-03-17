@@ -42,6 +42,7 @@
       <div class="col-lg-6 mx-auto">
         <div class="card rounded shadow p-5">
           <div class="text-center">
+            <img src="{{asset('img/logo_login.png')}}" class="mx-auto img-fluid" alt="">
             <h1 class="fw-bold">Login Siswa</h1>
             <p>Masuk menggunakan Nisn</p>
             {{-- @if(session()->has('loginError'))

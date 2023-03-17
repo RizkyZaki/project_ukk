@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembayaran;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AuthSiswa extends Controller
 {
     public function loginSiswa()
     {
+        if (!session('nisn')) {
+            return redirect('login/siswa');
+        }
         return view('admin.auth.login-siswa');
     }
 
@@ -21,14 +26,23 @@ class AuthSiswa extends Controller
                 'nama' => $siswa->nama,
                 'nisn' => $siswa->nisn
             ]);
-            return redirect('/')->with('success', 'Kamu Berhasil Masuk');
+            return redirect('my-history/transaction')->with('success', 'Kamu Berhasil Masuk');
         } else {
             return redirect('login/siswa');
         }
     }
     public function logout()
     {
-        session_unset();
+        Session::flush();
         return redirect('login');
+    }
+
+    public function siswaDashboard()
+    {
+        return view('admin.dashboard-siswa', [
+            'header' => 'SPP | Siswa Dashboard',
+            'titleCard' => 'Riwayat Pembayaran Saya',
+            'collection' => Pembayaran::where('nisn', session('nisn'))->get()
+        ]);
     }
 }

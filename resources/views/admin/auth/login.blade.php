@@ -25,6 +25,7 @@
 
     #card-login {
       margin-top: 130px;
+      margin-bottom: 130px;
     }
 
     .icon {
@@ -42,6 +43,7 @@
       <div class="col-lg-6 mx-auto">
         <div class="card rounded shadow p-5">
           <div class="text-center">
+            <img src="{{asset('img/logo_login.png')}}" class="mx-auto img-fluid" alt="">
             <h1 class="fw-bold">Login</h1>
             <h1 class="h4 text-gray-900 mb-4">Welcome User!</h1>
             @if(session()->has('loginError'))
