@@ -386,10 +386,10 @@
   <script>
     $(document).ready(function() {
       $('#dataTable').DataTable({
-        dom: 'Bfrtip',
-            buttons: [
-                'pdf'
-            ]
+        // dom: 'Bfrtip',
+        //     buttons: [
+        //         'pdf'
+        //     ]
       });
     });
     $(document).ready(function() {
