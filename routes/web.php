@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'dashboard'])->middleware('auth', 'admin');
+Route::get('/', [DashboardController::class, 'dashboard'])->middleware('auth');
 Route::get('my-history/transaction', [AuthSiswa::class, 'siswaDashboard']);
 // Route::get('remove', [AuthSiswa::class, 'remove']);
 
@@ -32,11 +32,11 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::controller(PembayaranController::class)->group(function () {
-  Route::get('history/pembayaran', 'history');
-  Route::get('bayar', 'bayar');
-  Route::post('bayar', 'store');
-  Route::get('print/{id}', 'print');
-})->middleware('auth');
+  Route::get('history/pembayaran', 'history')->middleware('auth');
+  Route::get('bayar', 'bayar')->middleware('auth');
+  Route::post('bayar', 'store')->middleware('auth');
+  Route::get('print/{id}', 'print')->middleware('auth');
+});
 
 Route::controller(AuthSiswa::class)->group(function () {
   Route::get('login/siswa', 'loginSiswa');
